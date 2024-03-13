@@ -3,9 +3,7 @@ package n11.n11finalcaseahmetsaimyilmaz.userReview;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import n11.n11finalcaseahmetsaimyilmaz.restaurant.Restaurant;
 import n11.n11finalcaseahmetsaimyilmaz.user.User;
-import org.springframework.stereotype.Service;
 
 @Entity
 @Getter
@@ -17,9 +15,8 @@ public class UserReview {
 
     @ManyToOne
     private User user;
-
-    @ManyToOne
-    private Restaurant restaurant;
+    @Column(name = "restaurant_id")
+    private int restaurant;
 
     private String reviewText;
     private int score;

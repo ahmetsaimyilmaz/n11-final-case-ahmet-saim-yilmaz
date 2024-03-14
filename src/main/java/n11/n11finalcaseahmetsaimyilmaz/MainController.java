@@ -8,6 +8,7 @@ public class MainController {
 
     @GetMapping
     public String showMainMenu() {
+        System.out.println("test");
         return "index";
     }
 }

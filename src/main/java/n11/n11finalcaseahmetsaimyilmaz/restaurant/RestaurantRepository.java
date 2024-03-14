@@ -1,6 +1,8 @@
 package n11.n11finalcaseahmetsaimyilmaz.restaurant;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.solr.repository.SolrCrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
+@Repository
+public interface RestaurantRepository extends SolrCrudRepository<Restaurant, Long> {
 }

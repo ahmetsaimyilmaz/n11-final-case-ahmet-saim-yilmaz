@@ -1,8 +1,6 @@
 package n11.n11finalcaseahmetsaimyilmaz.restaurant;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.solr.core.mapping.Indexed;
 import org.springframework.data.solr.core.mapping.SolrDocument;
@@ -11,11 +9,12 @@ import org.springframework.data.solr.core.mapping.SolrDocument;
 @Getter
 @Setter
 @AllArgsConstructor
+@RequiredArgsConstructor
 public class Restaurant {
 
     @Id
     @Indexed(name = "id", type = "string")
-    private String id; // Changed to String assuming Solr generally uses string IDs
+    private String id;
 
     @Indexed(name = "name", type = "string")
     private String name;

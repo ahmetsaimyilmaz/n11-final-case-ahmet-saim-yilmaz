@@ -11,7 +11,7 @@ import java.util.Optional;
 @RequestMapping("/restaurants")
 public class RestaurantController {
     private final RestaurantService restaurantService;
-    @PostConstruct
+
     public void test(){
         List<Restaurant> restaurantList = new ArrayList<>();
 

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Optional;
 
-@FeignClient(value = "restaurant-service", url = "http://localhost:8080/restaurants")
+@FeignClient(value = "restaurant-service", url = "http://localhost:8090/restaurants")
 public interface RestaurantServiceClient {
     @GetMapping("/{id}")
     public Optional<Restaurant> getRestaurantById(@PathVariable Long id);

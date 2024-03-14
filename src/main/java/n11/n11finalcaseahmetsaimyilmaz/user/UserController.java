@@ -20,12 +20,7 @@ public class UserController {
         return userService.createUser(user);
     }
 
-    @GetMapping({"/listofusers"})
-    public String getBook(Model model) {
-        List<User> allBooks = this.userService.getAllUsers();
-        model.addAttribute("users", allBooks);
-        return "userList";
-    }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {

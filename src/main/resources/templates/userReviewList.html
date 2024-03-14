@@ -17,24 +17,24 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Surname</th>
-        <th>Latitude</th>
-        <th>Longitude</th>
+        <th>Restaurant</th>
+        <th>Review</th>
+        <th>Score</th>
         <th> </th>
     </tr>
 
     </thead>
     <tbody>
-    <th:block th:each="user:${users}">
+    <th:block th:each="userReview:${userReviews}">
         <tr>
-            <td>[[${user.id}]]</td>
-            <td>[[${user.name}]]</td>
-            <td>[[${user.surname}]]</td>
-            <td>[[${user.latitude}]]</td>
-            <td>[[${user.longitude}]]</td>
+            <td>[[${userReview.id}]]</td>
+            <td>[[${userReview.user.name}]]</td>
+            <td>[[${userReview.restaurant}]]</td>
+            <td>[[${userReview.reviewText}]]</td>
+            <td>[[${userReview.score}]]</td>
             <td>
-                <a class="h4 mr-3" th:href="@{'books/edit/'+${user.id}}">Edit</a>
-                <a class="h4 mr-3" th:href="@{'books/delete/'+${user.id}}">Delete</a>
+                <a class="h4 mr-3" th:href="@{'books/edit/'+${userReview.id}}">Edit</a>
+                <a class="h4 mr-3" th:href="@{'books/delete/'+${userReview.id}}">Delete</a>
             </td>
         </tr>
     </th:block>

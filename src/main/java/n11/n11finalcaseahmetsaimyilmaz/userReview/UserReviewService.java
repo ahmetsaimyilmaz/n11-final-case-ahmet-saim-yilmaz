@@ -23,9 +23,6 @@ public class UserReviewService {
         return userReviewRepository.findAll();
     }
 
-    public void deleteUserReview(Long id) {
-        userReviewRepository.deleteById(id);
-    }
 
     public Optional<UserReview> findById(Long id) {
         return userReviewRepository.findById(id);

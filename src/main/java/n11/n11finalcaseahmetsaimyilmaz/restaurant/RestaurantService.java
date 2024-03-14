@@ -17,7 +17,14 @@ public class RestaurantService {
     public Iterable<Restaurant> findAll() {
         return restaurantRepository.findAll();
     }
-
+    public Optional<Restaurant> updateScore(Long id, double newScore) {
+        Optional<Restaurant> restaurant = restaurantRepository.findById(id);
+        restaurant.ifPresent(r -> {
+            r.setScore(newScore);
+            restaurantRepository.save(r);
+        });
+        return restaurant;
+    }
     public Optional<Restaurant> findById(Long id) {
         return restaurantRepository.findById(id);
     }

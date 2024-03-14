@@ -18,6 +18,11 @@ public class RestaurantController {
         restaurantService.save(new Restaurant("3", "The Spicy Curry", 51.5074, -0.1278, 4.8));
     }
 
+    @PatchMapping("/{id}/score")
+    public Optional<Restaurant> updateRestaurantScore(@PathVariable Long id, @RequestParam double score) {
+        return restaurantService.updateScore(id, score);
+    }
+
     public RestaurantController(RestaurantService restaurantService) {
         this.restaurantService = restaurantService;
     }

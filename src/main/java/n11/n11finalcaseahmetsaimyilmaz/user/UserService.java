@@ -1,13 +1,19 @@
 package n11.n11finalcaseahmetsaimyilmaz.user;
 
+import n11.n11finalcaseahmetsaimyilmaz.userReview.UserReview;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserService {
     private final UserRepository userRepository;
 
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }

@@ -1,7 +1,10 @@
 package n11.n11finalcaseahmetsaimyilmaz.user;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
@@ -15,6 +18,13 @@ public class UserController {
     @PostMapping
     public User createUser(@RequestBody User user) {
         return userService.createUser(user);
+    }
+
+    @GetMapping({"/listofusers"})
+    public String getBook(Model model) {
+        List<User> allBooks = this.userService.getAllUsers();
+        model.addAttribute("users", allBooks);
+        return "userList";
     }
 
     @PutMapping("/{id}")

@@ -40,7 +40,7 @@ public class UserReviewFrontEndController {
 
 
     @RequestMapping({"/userReview/save"})
-    public String registerBook(@ModelAttribute("userReviewObject") UserReview userReview, Model model) {
+    public String registerUserReview(@ModelAttribute("userReviewObject") UserReview userReview, Model model) {
         this.userService.createUser(userReview.getUser());
         this.userReviewService.save(userReview);
         List<UserReview> allUserReviews = this.userReviewService.getAllUserReviews();
@@ -51,8 +51,8 @@ public class UserReviewFrontEndController {
 
     @RequestMapping({"/newUserReview"})
     public String addNewUserReview(Model model) {
-        UserReview newReviewBook = new UserReview();
-        model.addAttribute("userReviewObject", newReviewBook);
+        UserReview newUserReview = new UserReview();
+        model.addAttribute("userReviewObject", newUserReview);
         return "userReviewForm";
     }
 
@@ -62,5 +62,12 @@ public class UserReviewFrontEndController {
         Optional<UserReview> u1 = this.userReviewService.findById((long) theId);
         model.addAttribute("userReviewObject", u1);
         return "userReviewForm";
+    }
+
+
+    @GetMapping({"/userReviews/delete/{id}"})
+    public String deleteCustomer(@PathVariable("id") int theId, Model model) {
+        this.userReviewService.deleteById((long) theId);
+        return "redirect:/listofuserreviews";
     }
 }

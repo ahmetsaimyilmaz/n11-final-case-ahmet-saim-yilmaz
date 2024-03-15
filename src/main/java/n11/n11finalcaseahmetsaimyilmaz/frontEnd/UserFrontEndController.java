@@ -43,7 +43,7 @@ public class UserFrontEndController {
     }
 
     @RequestMapping({"/user/save"})
-    public String registerBook(@ModelAttribute("userObject") User user, Model model) {
+    public String registerUser(@ModelAttribute("userObject") User user, Model model) {
         this.userService.createUser(user);
         List<User> allUsers = this.userService.getAllUsers();
         model.addAttribute("users", allUsers);
@@ -51,9 +51,9 @@ public class UserFrontEndController {
     }
 
     @RequestMapping({"/newUser"})
-    public String addNewBook(Model model) {
-        User newBook = new User();
-        model.addAttribute("userObject", newBook);
+    public String addNewUser(Model model) {
+        User newUser = new User();
+        model.addAttribute("userObject", newUser);
         return "userForm";
     }
 

@@ -46,6 +46,7 @@ public class RestaurantRecommendationService {
 
     private double hesaplaSkor(double lat, double lon, Restaurant restaurant) {
         double distance = calculateDistance(lat,lon,restaurant.getLatitude(),restaurant.getLongitude());
+        System.out.println((distance*0.7 + restaurant.getScore()*0.3) + " Rest " +restaurant.getName());
         return distance*0.7 + restaurant.getScore()*0.3;
 
     }

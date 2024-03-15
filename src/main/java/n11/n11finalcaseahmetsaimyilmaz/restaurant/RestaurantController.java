@@ -1,5 +1,6 @@
 package n11.n11finalcaseahmetsaimyilmaz.restaurant;
 
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
@@ -12,14 +13,10 @@ import java.util.Optional;
 public class RestaurantController {
     private final RestaurantService restaurantService;
 
-    public void test(){
-        List<Restaurant> restaurantList = new ArrayList<>();
 
-        restaurantService.save(new Restaurant("3", "The Spicy Curry", 51.5074, -0.1278, 4.8));
-    }
 
     @PatchMapping("/{id}/score")
-    public Optional<Restaurant> updateRestaurantScore(@PathVariable Long id, @RequestParam double score) {
+    public Optional<Restaurant> updateRestaurantScore(@PathVariable int id, @RequestParam double score) {
         return restaurantService.updateScore(id, score);
     }
 
@@ -28,12 +25,14 @@ public class RestaurantController {
     }
 
     @GetMapping
-    public Iterable<Restaurant> getAllRestaurants() {
-        return restaurantService.findAll();
+    public List<Restaurant> getAllRestaurants() {
+        Page<Restaurant> resultPage = (Page<Restaurant>) restaurantService.findAll();
+        List<Restaurant> restaurants = resultPage.getContent();
+        return restaurants;
     }
 
     @GetMapping("/{id}")
-    public Optional<Restaurant> getRestaurantById(@PathVariable Long id) {
+    public Optional<Restaurant> getRestaurantById(@PathVariable int id) {
         return restaurantService.findById(id);
     }
 
@@ -43,7 +42,7 @@ public class RestaurantController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteRestaurant(@PathVariable Long id) {
+    public void deleteRestaurant(@PathVariable int id) {
         restaurantService.deleteById(id);
     }
 }

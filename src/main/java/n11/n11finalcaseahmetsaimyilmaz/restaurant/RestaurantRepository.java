@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
 @Repository
-public interface RestaurantRepository extends SolrCrudRepository<Restaurant, Long> {
+public interface RestaurantRepository extends SolrCrudRepository<Restaurant, Integer> {
 
 
 }

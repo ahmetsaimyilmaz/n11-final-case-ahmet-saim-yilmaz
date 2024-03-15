@@ -79,6 +79,13 @@ public class MainController {
         this.userService.createUser(user);
         List<User> allUsers = this.userService.getAllUsers();
         model.addAttribute("users", allUsers);
-        return "userList";
+        return  "redirect:/listofusers";
+    }
+
+    @RequestMapping({"/newUser"})
+    public String addNewBook(Model model) {
+        User newBook = new User();
+        model.addAttribute("userObject", newBook);
+        return "userForm";
     }
 }

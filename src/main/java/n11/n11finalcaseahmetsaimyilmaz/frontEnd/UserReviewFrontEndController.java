@@ -42,7 +42,7 @@ public class UserReviewFrontEndController {
     @RequestMapping({"/userReview/save"})
     public String registerBook(@ModelAttribute("userReviewObject") UserReview userReview, Model model) {
         this.userService.createUser(userReview.getUser());
-        this.userReviewService.saveUserReview(userReview);
+        this.userReviewService.save(userReview);
         List<UserReview> allUserReviews = this.userReviewService.getAllUserReviews();
         model.addAttribute("userReviews", allUserReviews);
         return  "redirect:/listofuserreviews";

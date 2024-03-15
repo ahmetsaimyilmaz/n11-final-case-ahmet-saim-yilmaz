@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import n11.n11finalcaseahmetsaimyilmaz.user.User;
+import org.springframework.lang.NonNull;
 
 @Entity
 @Getter
@@ -14,55 +15,16 @@ public class UserReview {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name="user_id",referencedColumnName = "id",nullable = false)
     private User user;
-    @Column(name = "restaurant_id")
-    private int restaurant;
+
+    @NonNull
+    private int restaurantId;
+
 
     private String reviewText;
+
+    @NonNull
     private int score;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public String getName() {
-        return user.getName();
-    }
-
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public int getRestaurant() {
-        return restaurant;
-    }
-
-    public void setRestaurant(int restaurant) {
-        this.restaurant = restaurant;
-    }
-
-    public String getReviewText() {
-        return reviewText;
-    }
-
-    public void setReviewText(String reviewText) {
-        this.reviewText = reviewText;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
 }

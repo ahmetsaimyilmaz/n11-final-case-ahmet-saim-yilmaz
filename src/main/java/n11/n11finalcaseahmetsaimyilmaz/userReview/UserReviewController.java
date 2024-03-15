@@ -13,8 +13,7 @@ import java.util.Optional;
 @RequestMapping("/api/userReviews")
 public class UserReviewController {
 
-    @Autowired
-    private RestaurantServiceClient restaurantServiceClient;
+
 
     private final UserReviewService userReviewService;
 
@@ -31,8 +30,7 @@ public class UserReviewController {
     @GetMapping("/{id}")
     public ResponseEntity<UserReview> getUserReviewById(@PathVariable Long id) {
 
-        Optional<Restaurant> temp =  restaurantServiceClient.getRestaurantById((long) userReviewService.findById(id).get().getRestaurant());
-        System.out.println(temp.get().toString());
+
         return userReviewService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
@@ -40,7 +38,7 @@ public class UserReviewController {
 
     @PostMapping
     public UserReview createUserReview(@RequestBody UserReview userReview) {
-        return userReviewService.saveUserReview(userReview);
+        return userReviewService.save(userReview);
     }
 
     @PutMapping("/{id}")

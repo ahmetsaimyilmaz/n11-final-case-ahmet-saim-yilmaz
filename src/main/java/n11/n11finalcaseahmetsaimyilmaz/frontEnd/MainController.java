@@ -38,11 +38,6 @@ public class MainController {
         return "index";
     }
 
-
-
-
-
-
     @GetMapping({"/listofrestaurants"})
     public String getRestaurants(Model model) {
         List<Restaurant> allRestaruants = this.restaurantServiceClient.getAllRestaurants();

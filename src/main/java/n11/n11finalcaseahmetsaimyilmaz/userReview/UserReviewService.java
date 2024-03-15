@@ -50,7 +50,7 @@ public class UserReviewService {
         Optional<Restaurant> temp =  restaurantServiceClient.getRestaurantById((long) userReview.getRestaurantId());
         long totalScore= userReviewRepository.countByRestaurantId((long) userReview.getRestaurantId());
         double total= totalScore * temp.get().getScore() - userReview.getScore();
-        double newScore =total/totalScore;
+        double newScore =total/(totalScore-1);
         temp.get().setScore(newScore);
         restaurantServiceClient.createRestaurant(temp.get());
 

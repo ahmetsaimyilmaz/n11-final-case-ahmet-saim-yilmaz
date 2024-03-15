@@ -33,6 +33,11 @@ public class UserReview {
         return user;
     }
 
+    public String getName() {
+        return user.getName();
+    }
+
+
     public void setUser(User user) {
         this.user = user;
     }

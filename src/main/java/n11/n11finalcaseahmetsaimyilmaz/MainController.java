@@ -68,6 +68,13 @@ public class MainController {
         return "userForm";
     }
 
+    @GetMapping({"/userReviews/edit/{id}"})
+    public String showEditFormUserReview(@PathVariable("id") int theId, Model model) {
+        Optional<UserReview> u1 = this.userReviewService.findById((long) theId);
+        model.addAttribute("userReviewObject", u1);
+        return "userReviewForm";
+    }
+
     @GetMapping({"/users/delete/{id}"})
     public String deleteCustomer(@PathVariable("id") int theId, Model model) {
         this.userService.deleteUser((long) theId);
@@ -82,10 +89,26 @@ public class MainController {
         return  "redirect:/listofusers";
     }
 
+    @RequestMapping({"/userReview/save"})
+    public String registerBook(@ModelAttribute("userReviewObject") UserReview userReview, Model model) {
+        this.userService.createUser(userReview.getUser());
+        this.userReviewService.saveUserReview(userReview);
+        List<UserReview> allUserReviews = this.userReviewService.getAllUserReviews();
+        model.addAttribute("userReviews", allUserReviews);
+        return  "redirect:/listofuserreviews";
+    }
+
     @RequestMapping({"/newUser"})
     public String addNewBook(Model model) {
         User newBook = new User();
         model.addAttribute("userObject", newBook);
         return "userForm";
+    }
+
+    @RequestMapping({"/newUserReview"})
+    public String addNewUserReview(Model model) {
+        UserReview newReviewBook = new UserReview();
+        model.addAttribute("userReviewObject", newReviewBook);
+        return "userReviewForm";
     }
 }

@@ -20,7 +20,7 @@
         <th>Restaurant</th>
         <th>Review</th>
         <th>Score</th>
-        <th> </th>
+
     </tr>
 
     </thead>
@@ -33,8 +33,8 @@
             <td>[[${userReview.reviewText}]]</td>
             <td>[[${userReview.score}]]</td>
             <td>
-                <a class="h4 mr-3" th:href="@{'books/edit/'+${userReview.id}}">Edit</a>
-                <a class="h4 mr-3" th:href="@{'books/delete/'+${userReview.id}}">Delete</a>
+                <a class="h4 mr-3" th:href="@{'userReviews/edit/'+${userReview.id}}">Edit</a>
+                <a class="h4 mr-3" th:href="@{'userReviews/delete/'+${userReview.id}}">Delete</a>
             </td>
         </tr>
     </th:block>

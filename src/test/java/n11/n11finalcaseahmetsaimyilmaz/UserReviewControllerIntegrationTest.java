@@ -31,10 +31,12 @@ public class UserReviewControllerIntegrationTest  {
     @Test
     public void testCreateUserReview() throws Exception {
         User user = new User();
+
         user.setId(1L);
         UserReview userReview = new UserReview();
         userReview.setScore(5);
         userReview.setUser(user);
+        userReview.getUser().setId(1L);
         userReview.setRestaurantId(1);
         String userReviewJson = "{\"user\": { \"id\": 1 },\"restaurantId\":1,\"score\":5,\"reviewText\":\"Great!\"}";
 

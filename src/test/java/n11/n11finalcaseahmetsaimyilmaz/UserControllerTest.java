@@ -38,7 +38,7 @@ public class UserControllerTest {
 
         mockMvc.perform(post("/api/users")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"name\":\"Suna\",\"surname\":\"Doe\"}"))
+                        .content("{\"name\":\"Suna\",\"surname\":\"Kamateh\"}"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("Suna"));
     }

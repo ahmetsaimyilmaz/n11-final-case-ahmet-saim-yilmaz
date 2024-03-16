@@ -37,7 +37,7 @@ public class UserService {
             existingUser.setLongitude(updatedUser.getLongitude());
             return userRepository.save(existingUser);
         } else {
-            return null; // Or throw exception or handle accordingly
+            return null;
         }
     }
 

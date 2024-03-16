@@ -65,11 +65,4 @@ public class UserReviewService {
     }
 
 
-    public boolean isTestEnvironment() {
-        return isTestEnvironment;
-    }
-
-    public void setTestEnvironment(boolean testEnvironment) {
-        isTestEnvironment = testEnvironment;
-    }
 }

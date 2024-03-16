@@ -3,6 +3,7 @@ package n11.n11finalcaseahmetsaimyilmaz.user;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.webjars.NotFoundException;
 
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class UserController {
         if (user != null) {
             return ResponseEntity.ok(user);
         } else {
-            return ResponseEntity.notFound().build();
+            throw new NotFoundException("User not found with id: " + id);
         }
     }
 

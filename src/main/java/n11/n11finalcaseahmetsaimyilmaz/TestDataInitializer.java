@@ -33,7 +33,7 @@ public class TestDataInitializer {
 
 
     public void resetAutoIncrement() {
-        // Example for MySQL/MariaDB
+
         jdbcTemplate.execute("ALTER SEQUENCE users_id_seq RESTART WITH 1");
     }
     @PostConstruct

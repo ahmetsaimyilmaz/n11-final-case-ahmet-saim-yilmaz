@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant Recommendation</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class ="container-fluid text-center"/>
+
+<div><h2>List of all users</h2></div>
+<a class="h4 mr-3" th:href="@{'newUser'}">Add</a>
+
+<table class="table table-sub-heading-color">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th> </th>
+    </tr>
+
+    </thead>
+    <tbody>
+    <th:block th:each="user:${users}">
+        <tr>
+            <td>[[${user.id}]]</td>
+            <td>[[${user.name}]]</td>
+            <td>[[${user.surname}]]</td>
+            <td>[[${user.latitude}]]</td>
+            <td>[[${user.longitude}]]</td>
+            <td>
+                <a class="h4 mr-3" th:href="@{'users/edit/'+${user.id}}">Edit</a>
+                <a class="h4 mr-3" th:href="@{'users/delete/'+${user.id}}">Delete</a>
+            </td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+</div>
+
+<div>
+    <a class="h6 mr-3" th:href="@{'/'}">Go back to main page</a>
+
+</div>
+</div>
+</body>
+</html>
+
+</title>
+</head>
+<body>
+
+</body>
+</html>

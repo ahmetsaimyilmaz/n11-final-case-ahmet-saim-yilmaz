@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant Recommendation</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class ="container-fluid text-center"/>
+
+<div><h2>List of all the restaurants</h2></div>
+<a class="h4 mr-3" th:href="@{'newBook'}">Add</a>
+
+<table class="table table-sub-heading-color">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Score</th>
+        <th> </th>
+    </tr>
+
+    </thead>
+    <tbody>
+    <th:block th:each="restaurant:${restaurants}">
+        <tr>
+            <td>[[${restaurant.id}]]</td>
+            <td>[[${restaurant.name}]]</td>
+            <td>[[${restaurant.latitude}]]</td>
+            <td>[[${restaurant.longitude}]]</td>
+            <td>[[${restaurant.score}]]</td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+</div>
+
+<div>
+    <a class="h6 mr-3" th:href="@{'/'}">Go back to main page</a>
+
+</div>
+</div>
+</body>
+</html>
+
+</title>
+</head>
+<body>
+
+</body>
+</html>

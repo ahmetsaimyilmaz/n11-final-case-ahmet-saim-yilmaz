@@ -34,11 +34,14 @@ It allows for management of user profiles, restaurant details, and user reviews.
 
 The application should now be running and accessible on `http://localhost:8080`.
 
+- **User- User Review - Recommendation System:** Should now be running and accessible on `http://localhost:8080`.
+- **Restaurant:** Should now be running and accessible on `http://localhost:8090`.
+
 ## Usage
 
 - **Creating a User:** Send a POST request to `http://localhost:8080/api/users` with the user's details.
 - **Submitting a Review:** Send a POST request to `http://localhost:8080/api/reviews` with the review details.
-- **Adding a Restaurant:** Send a POST request to `http://localhost:8080/restaurants` with the restaurant details.
+- **Adding a Restaurant:** Send a POST request to `http://localhost:8090/restaurants` with the restaurant details.
 - **Getting Recommendations:** Access `http://localhost:8080/api/recommendations` with the user's location to receive the top three restaurant recommendations.
 
 ## Contributing

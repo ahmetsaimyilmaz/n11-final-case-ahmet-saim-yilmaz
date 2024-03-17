@@ -1,4 +1,4 @@
-package n11.n11finalcaseahmetsaimyilmaz;
+package n11.n11finalcaseahmetsaimyilmaz.exceptionManagement;
 
 import lombok.Getter;
 import lombok.Setter;

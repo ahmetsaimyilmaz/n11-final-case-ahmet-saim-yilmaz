@@ -27,4 +27,13 @@ public class UserReview {
     @NonNull
     private int score;
 
+    public UserReview(User user, int restaurantId, String reviewText, int score) {
+        this.user = user;
+        this.restaurantId = restaurantId;
+        this.reviewText = reviewText;
+        this.score = score;
+    }
+
+    public UserReview() {
+    }
 }

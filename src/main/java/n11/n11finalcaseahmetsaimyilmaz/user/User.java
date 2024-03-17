@@ -23,6 +23,21 @@ public class User {
     private double latitude;
     private double longitude;
 
+    public User(@NonNull String name, String surname, double latitude, double longitude) {
+        this.name = name;
+        this.surname = surname;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public User(Long id, @NonNull String name, String surname, double latitude, double longitude) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
     public User() {
 
     }

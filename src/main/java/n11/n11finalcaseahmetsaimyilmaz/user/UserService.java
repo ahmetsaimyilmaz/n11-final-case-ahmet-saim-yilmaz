@@ -22,6 +22,15 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    public List<User> saveUsers(List<User> users) {
+        return userRepository.saveAll(users);
+    }
+
+    public Long count(){
+        return userRepository.count();
+    }
+
+
     public User getUserById(Long id) {
         Optional<User> userOptional = userRepository.findById(id);
         return userOptional.orElse(null);
